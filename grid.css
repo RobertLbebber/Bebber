@@ -1,14 +1,14 @@
 /*  General Cell and Grid Styling   */
-h1{
-    text-align: center;
-}
 h1 b{
-    text-align: center;
-    font-weight: 600;
+    text-decoration: underline;
 }
 
-*{
+body{
     text-align: center;    
+}
+
+a{
+    display: block;
 }
 
 nav.grid{
