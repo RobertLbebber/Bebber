@@ -39,23 +39,6 @@ header{
     grid-area: hed;
 }
 
-.cell.overlay{
-    grid-column:3/-1;
-    grid-row: 1/span 2;
-    margin-right: 0;
-    
-    z-index: 20;
-    background-color: #4658;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-}
-
-#ads{
-    grid-area: ads;
-}
-
 footer{
     grid-area: fut;
 }
@@ -72,19 +55,6 @@ footer{
             "art art"
             "fut fut";
     }
-    
-.overlay{
-    grid-column:1/-1;
-    grid-row: 2;
-    margin-right: 0;
-    
-    z-index: 20;
-    background-color: #4658;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    font-size: 150%;
-}
     
     nav.grid{
         display:grid;
