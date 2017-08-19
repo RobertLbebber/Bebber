@@ -1,0 +1,21 @@
+[10-Aug-2017 13:45:52 America/Denver] PHP Fatal error:  Uncaught exception 'Exception' with message 'Could not complete payment request' in /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/APIRequests.php:69
+Stack trace:
+#0 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/Charge.php(87): Due\APIRequests::request('/ecommerce/paym...', 'POST', Array)
+#1 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/Charge.php(101): Due\Charge::doCardPayment(Array)
+#2 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/charge-card.php(63): Due\Charge::card(Array)
+#3 {main}
+  thrown in /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/APIRequests.php on line 69
+[10-Aug-2017 13:46:08 America/Denver] PHP Fatal error:  Uncaught exception 'Exception' with message 'Could not complete payment request' in /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/APIRequests.php:69
+Stack trace:
+#0 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/Charge.php(87): Due\APIRequests::request('/ecommerce/paym...', 'POST', Array)
+#1 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/Charge.php(101): Due\Charge::doCardPayment(Array)
+#2 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/charge-card.php(63): Due\Charge::card(Array)
+#3 {main}
+  thrown in /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/APIRequests.php on line 69
+[10-Aug-2017 13:46:15 America/Denver] PHP Fatal error:  Uncaught exception 'Exception' with message 'Could not complete payment request' in /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/APIRequests.php:69
+Stack trace:
+#0 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/Charge.php(87): Due\APIRequests::request('/ecommerce/paym...', 'POST', Array)
+#1 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/Charge.php(101): Due\Charge::doCardPayment(Array)
+#2 /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/charge-card.php(63): Due\Charge::card(Array)
+#3 {main}
+  thrown in /home1/sienasel/public_html/csis390spring2017/s780646/ectr/Test/due-ecom-php-test/vendor/due/php-ecom-sdk/lib/APIRequests.php on line 69

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Name: </td>
+        <td><input id="name" value="bob jones" type="text"></td>
+    </tr>
+    <tr>
+        <td>Email: </td>
+        <td><input id="email" value="email@test.com" type="text"></td>
+    </tr>
+    <tr>
+        <td>Credit Card Number: </td>
+        <td><input id="cc-number" value="4242424242424242" type="text"></td>
+    </tr>
+    <tr>
+        <td>Expiration Month: </td>
+        <td><input id="cc-month" value="04" type="text"></td>
+    </tr>
+    <tr>
+        <td>Expiration Year: </td>
+        <td><input id="cc-year" value="2020" type="text"></td>
+    </tr>
+    <tr>
+        <td>CVV: </td>
+        <td><input id="cc-cvv" value="123" type="text"></td>
+    </tr>
+    <tr>
+        <td>Postal Code: </td>
+        <td><input id="postal_code" value="90802" type="text"></td>
+    </tr>
+    <tr>
+        <td>Payment Total: </td>
+        <td><input id="payment_total" value="1.50" type="text"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="Submit" value="Submit" id="cc-submit"></td>
+    </tr>
+</table>
+<div id="response_raw_data">
+
+</div>
+
+<!-- JQuery not required to run Due.js. Only used for $.ajax -->
+<script type="text/javascript" src="./jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript" src="https://static.due.com/v1.1/due.min.js"></script>
+<script type="text/javascript">
+    (function() {
+
+        /////////////////////////////////
+        // START Installation Settings
+
+        // 1. Set Environment
+        var dueEnv = 'stage'; // set to 'stage' or 'prod'
+
+        // 2. Set Your Account's Rail Type
+        var dueRailType = 'us'; // set to 'us' or 'us_int'
+
+        // 3. Load Due.js
+        Due.load.init(dueEnv,dueRailType);
+
+        // END Installation Settings
+        /////////////////////////////////
+
+        // Below this point is only for demonstration purposes.
+        // Feel free to implement how you want :)
+        var d = document;
+        d.id = d.getElementById,
+                valueById = function(id) {
+                    return d.id(id).value;
+                };
+
+        // For those not using DOM libraries
+        var addEvent = function(e,v,f) {
+            if (!!window.attachEvent) { e.attachEvent('on' + v, f); }
+            else { e.addEventListener(v, f, false); }
+        };
+
+        // Attach the event to the DOM
+        addEvent(d.id('cc-submit'), 'click', function() {
+            var paymentCurrency = 'USD';
+            var customerName = valueById('name');
+            var customerEmail = valueById('email');
+            var customerPostalCode = valueById('postal_code');
+            var paymentTotal = valueById('payment_total');
+
+            // Tokenize Card Payment
+            Due.payments.card.create({
+                "name":             customerName,
+                "email":            customerEmail,
+                "card_number":      valueById('cc-number'),
+                "cvv":              valueById('cc-cvv'),
+                "exp_month":        valueById('cc-month'),
+                "exp_year":         valueById('cc-year'),
+                "address": {
+                    "postal_code":  customerPostalCode
+                }
+            }, function(tokenizedData) {
+                if (tokenizedData.error) {
+                    // handle error response
+                    console.log('failed');
+                    console.log(tokenizedData);
+                } else {
+                    // success!
+                    console.log('payment tokenized!');
+                    console.log(tokenizedData);
+                    // you can safely pass along any data here to your servers
+                    var card_id = tokenizedData.card_id;
+                    var card_hash = tokenizedData.card_hash;
+
+                    $.ajax({
+                        type: "POST",
+                        url: './charge-card.php',
+                        data: {
+                            env_name: dueEnv,
+                            rail_type: dueRailType,
+                            currency: paymentCurrency,
+                            total: paymentTotal,
+                            card_data: tokenizedData,
+                            customer: {
+                                name: customerName,
+                                email: customerEmail,
+                                postal_code: customerPostalCode
+                            }
+                        },
+                        success: function( paymentData ) {
+                            console.log('payment processed!');
+                            console.log(paymentData);
+                            document.getElementById("response_raw_data").innerHTML = "<h4>Response Data</h4>"+paymentData;
+
+                        }
+                    });
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>

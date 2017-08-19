@@ -1,0 +1,25 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: black;
+}
+
+.container {
+	border: 1px solid lightgray;
+	border-radius: 4px;
+	padding: 15px;
+}
+
+.nav-item:hover{
+    border: 1px solid green;
+    border-radius: 4px;
+}
+.nav-item{
+    border: 1px solid white;
+    border-radius: 4px;
+}
+
+.form-check {
+  margin-bottom: .4rem;
+  margin-top: .4rem;
+}

@@ -1,0 +1,1 @@
+[14-Aug-2017 16:14:10 America/Denver] PHP Fatal error:  Using $this when not in object context in /home1/sienasel/public_html/csis390spring2017/s780646/ectr/AccountManagement/EctrUserClass.php on line 25

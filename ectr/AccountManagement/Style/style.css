@@ -1,0 +1,29 @@
+/*
+AccountManagement/Style/style.css
+*/
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.container {
+	border: 1px solid lightgray;
+	border-radius: 4px;
+	padding: 15px;
+}
+
+#userProfile{
+    font-size: 100em;
+    color: aqua;
+    font-weight: 600;
+}
+
+.form-check {
+  margin-bottom: .4rem;
+  margin-top: .4rem;
+}
+
+.asterisk {
+    color: red;
+    padding-right: 5px;
+}

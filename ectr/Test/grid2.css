@@ -1,0 +1,79 @@
+.cell{
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+nav .cell{
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+nav .cell.active{
+    background-color: #59f;
+}
+
+/*  Section Tagging     */
+nav {
+    grid-column-start: main-start;
+    grid-row-start: main-start;
+    grid-row-end: main-end;
+}
+
+article{
+    grid-column-start: content-start;
+    grid-column-end: sd-start;
+    grid-row-start: content-start;
+    grid-row-end: main-end;
+}
+
+header{
+    grid-column-start: content-start;
+    grid-column-end: main-end;
+    grid-row-start: main-start;
+}
+
+.overlay{
+    grid-column-start: content-mid;
+    grid-column-end: main-end;
+    
+    grid-row: 1/ span 2;
+    z-index: 20;
+    background-color: #4658;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+}
+
+#ads{
+    grid-column-start: sd-start;
+    grid-column-end: main-end;
+    grid-row-start: content-start;
+    grid-row-end:main-end;
+}
+
+footer{
+    grid-column-start: main-start;
+    grid-column-end: main-end;
+    grid-row-start: main-end;
+    grid-row-end: ft-end;
+}
+
+/*  Grid Styles based on Screen Size    */
+@media(min-width:640px){
+    .grid#main-containers{
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: [main-start] 1fr [content-start] 3fr [content-mid] 1fr [sd-start] 2fr [main-end];
+        grid-template-rows: [main-start] 1fr [content-start] 3fr [main-end] 1fr [ft-end] ;
+    }
+    
+    .grid#nav-containers{
+        display: grid;
+        grid-gap: 10px;
+    }
+}
