@@ -2,6 +2,14 @@
 h1{
     text-align: center;
 }
+h1 b{
+    text-align: center;
+    font-weight: 600;
+}
+
+*{
+    text-align: center;    
+}
 
 nav.grid{
     display: grid;
@@ -28,6 +36,11 @@ nav .cell{
 nav .cell:hover{
     background-color: #59f;
     color: #fff;
+}
+
+article.cell{
+    text-align: justify;
+    grid-area: art;
 }
 
 /*  Section Tagging     */
